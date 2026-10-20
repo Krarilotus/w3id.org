@@ -1,0 +1,33 @@
+# # /hisqu/
+#
+# Permanent identifiers for HisQu, a research project on historical sources
+# (https://www.hisqu.de/). One root with sub-namespaces, each with one owner:
+#
+#   /hisqu/                   the project's home page
+#   /hisqu/dmw/<vocabulary>   vocabularies of DMW, the project's data modelling
+#                             workbench; terms are <vocabulary>#<Name>
+#   /hisqu/data/              instance data of the hosted DMW server (reserved)
+#   /hisqu/ontology/          the core ontology modules (reserved)
+#   /hisqu/rg/                Repertorium Germanicum data (reserved)
+#
+# A reserved sub-namespace has no rule yet, so it answers 404 until its owner adds one.
+#
+# ## Contact
+# This space is administered by:
+#
+# <maintainer name>
+# <maintainer email>
+# GitHub username: <maintainer GitHub username>
+
+RewriteEngine on
+
+# DMW process vocabulary. Terms are hash IRIs, such as
+# https://w3id.org/hisqu/dmw/process#Workflow, so clients request the vocabulary IRI.
+# Turtle is the only format published, so every request gets it.
+# The latest release:
+RewriteRule ^dmw/process(\.ttl)?$ https://www.hisqu.de/dmw/process.ttl [R=303,L]
+# One release; its owl:versionIRI is https://w3id.org/hisqu/dmw/process/<n>:
+RewriteRule ^dmw/process/([1-9][0-9]*)(\.ttl)?$ https://www.hisqu.de/dmw/process/$1.ttl [R=303,L]
+
+# The project's home page.
+RewriteRule ^$ https://www.hisqu.de/ [R=302,L]
