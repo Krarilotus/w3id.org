@@ -13,4 +13,4 @@ Permanent identifiers for the HisQu project (<https://www.hisqu.de/>).
 
 ## Maintainers
 
-- <maintainer name>, <maintainer email>, GitHub username: <maintainer GitHub username>
+- Johannes Mitschunas, johannes.mitschunas@uni-jena.de, GitHub username: Krarilotus
