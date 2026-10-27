@@ -1,0 +1,36 @@
+# # /hisqu/
+#
+# Permanent identifiers of the HisQu project (https://www.hisqu.de/).
+#
+# https://w3id.org/hisqu/dmw/process is the DMW process vocabulary; its terms
+# are https://w3id.org/hisqu/dmw/process#<Term>. https://w3id.org/hisqu/dmw/process/<n>
+# is release <n>. Turtle clients get the Turtle file, everyone else the HTML
+# documentation.
+#
+# ## Contact
+# This space is administered by:
+#
+# Johannes Mitschunas
+# GitHub username: Krarilotus
+
+RewriteEngine on
+
+RewriteRule ^$ https://www.hisqu.de/ [R=302,L]
+
+# --- DMW process vocabulary, latest release ----------------------------------
+
+RewriteRule ^dmw/process\.ttl$ https://www.hisqu.de/dmw/process.ttl [R=303,L]
+
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^dmw/process/?$ https://www.hisqu.de/dmw/process.ttl [R=303,L]
+
+RewriteRule ^dmw/process/?$ https://www.hisqu.de/dmw/process/ [R=303,L]
+
+# --- DMW process vocabulary, release <n> -------------------------------------
+
+RewriteRule ^dmw/process/([0-9]+)\.ttl$ https://www.hisqu.de/dmw/process/$1.ttl [R=303,L]
+
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^dmw/process/([0-9]+)$ https://www.hisqu.de/dmw/process/$1.ttl [R=303,L]
+
+RewriteRule ^dmw/process/([0-9]+)$ https://www.hisqu.de/dmw/process/$1.html [R=303,L]
